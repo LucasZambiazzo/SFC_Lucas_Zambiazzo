@@ -42,7 +42,7 @@ Partial Class frmProveedores
         Me.lblTelefono.Location = New System.Drawing.Point(268, 114)
         Me.lblTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(53, 15)
+        Me.lblTelefono.Size = New System.Drawing.Size(62, 17)
         Me.lblTelefono.TabIndex = 2
         Me.lblTelefono.Text = "Telefono"
         '
@@ -52,7 +52,7 @@ Partial Class frmProveedores
         Me.lblEmail.Location = New System.Drawing.Point(268, 40)
         Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(36, 15)
+        Me.lblEmail.Size = New System.Drawing.Size(42, 17)
         Me.lblEmail.TabIndex = 3
         Me.lblEmail.Text = "Email"
         '
@@ -62,7 +62,7 @@ Partial Class frmProveedores
         Me.txtTelefono.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtTelefono.MaxLength = 10
         Me.txtTelefono.Name = "txtTelefono"
-        Me.txtTelefono.Size = New System.Drawing.Size(116, 23)
+        Me.txtTelefono.Size = New System.Drawing.Size(116, 25)
         Me.txtTelefono.TabIndex = 6
         '
         'txtEmail
@@ -70,7 +70,7 @@ Partial Class frmProveedores
         Me.txtEmail.Location = New System.Drawing.Point(332, 36)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(116, 23)
+        Me.txtEmail.Size = New System.Drawing.Size(116, 25)
         Me.txtEmail.TabIndex = 9
         '
         'btnRegistrar
@@ -95,7 +95,7 @@ Partial Class frmProveedores
         Me.txtRazonSocial.Location = New System.Drawing.Point(96, 36)
         Me.txtRazonSocial.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtRazonSocial.Name = "txtRazonSocial"
-        Me.txtRazonSocial.Size = New System.Drawing.Size(116, 23)
+        Me.txtRazonSocial.Size = New System.Drawing.Size(116, 25)
         Me.txtRazonSocial.TabIndex = 5
         '
         'lblRazonSocial
@@ -104,7 +104,7 @@ Partial Class frmProveedores
         Me.lblRazonSocial.Location = New System.Drawing.Point(7, 40)
         Me.lblRazonSocial.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRazonSocial.Name = "lblRazonSocial"
-        Me.lblRazonSocial.Size = New System.Drawing.Size(73, 15)
+        Me.lblRazonSocial.Size = New System.Drawing.Size(85, 17)
         Me.lblRazonSocial.TabIndex = 1
         Me.lblRazonSocial.Text = "Razon Social"
         '
@@ -113,7 +113,7 @@ Partial Class frmProveedores
         Me.txtCUIT.Location = New System.Drawing.Point(96, 110)
         Me.txtCUIT.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtCUIT.Name = "txtCUIT"
-        Me.txtCUIT.Size = New System.Drawing.Size(116, 23)
+        Me.txtCUIT.Size = New System.Drawing.Size(116, 25)
         Me.txtCUIT.TabIndex = 4
         '
         'lblCUIT
@@ -122,7 +122,7 @@ Partial Class frmProveedores
         Me.lblCUIT.Location = New System.Drawing.Point(27, 114)
         Me.lblCUIT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCUIT.Name = "lblCUIT"
-        Me.lblCUIT.Size = New System.Drawing.Size(33, 15)
+        Me.lblCUIT.Size = New System.Drawing.Size(37, 17)
         Me.lblCUIT.TabIndex = 0
         Me.lblCUIT.Text = "CUIT"
         '
@@ -137,6 +137,7 @@ Partial Class frmProveedores
         Me.GroupBox1.Controls.Add(Me.lblTelefono)
         Me.GroupBox1.Controls.Add(Me.txtRazonSocial)
         Me.GroupBox1.Controls.Add(Me.lblEmail)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(58, 44)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox1.Name = "GroupBox1"

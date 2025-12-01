@@ -104,30 +104,34 @@ Partial Class ListadoUsuarios
         '
         Me.mnuOpciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuNuevo, Me.mnuModificar, Me.mnuEliminar, Me.ImprimirToolStripMenuItem})
         Me.mnuOpciones.Name = "mnuOpciones"
-        Me.mnuOpciones.Size = New System.Drawing.Size(126, 92)
+        Me.mnuOpciones.Size = New System.Drawing.Size(181, 114)
         '
         'mnuNuevo
         '
+        Me.mnuNuevo.Image = Global.SFC_Lucas_Zambiazzo.My.Resources.Resources.agregar_usuario1
         Me.mnuNuevo.Name = "mnuNuevo"
-        Me.mnuNuevo.Size = New System.Drawing.Size(125, 22)
+        Me.mnuNuevo.Size = New System.Drawing.Size(180, 22)
         Me.mnuNuevo.Text = "Nuevo"
         '
         'mnuModificar
         '
+        Me.mnuModificar.Image = Global.SFC_Lucas_Zambiazzo.My.Resources.Resources.editar
         Me.mnuModificar.Name = "mnuModificar"
-        Me.mnuModificar.Size = New System.Drawing.Size(125, 22)
+        Me.mnuModificar.Size = New System.Drawing.Size(180, 22)
         Me.mnuModificar.Text = "Modificar"
         '
         'mnuEliminar
         '
+        Me.mnuEliminar.Image = Global.SFC_Lucas_Zambiazzo.My.Resources.Resources.basura
         Me.mnuEliminar.Name = "mnuEliminar"
-        Me.mnuEliminar.Size = New System.Drawing.Size(125, 22)
+        Me.mnuEliminar.Size = New System.Drawing.Size(180, 22)
         Me.mnuEliminar.Text = "Eliminar"
         '
         'ImprimirToolStripMenuItem
         '
+        Me.ImprimirToolStripMenuItem.Image = Global.SFC_Lucas_Zambiazzo.My.Resources.Resources.imprimir
         Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
-        Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImprimirToolStripMenuItem.Text = "Imprimir"
         '
         'UsuariosBindingSource
