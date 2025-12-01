@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SFCDataSet1" targetNamespace="http://tempuri.org/SFCDataSet1.xsd" xmlns:mstns="http://tempuri.org/SFCDataSet1.xsd" xmlns="http://tempuri.org/SFCDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SFCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SFCConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SFC_Lucas_Zambiazzo.My.MySettings.GlobalReference.Default.SFCConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MedicamentosTableAdapter" GeneratorDataComponentClassName="MedicamentosTableAdapter" Name="Medicamentos" UserDataComponentName="MedicamentosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SFCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT M.idMedicamento, M.Codigo, M.Medicamento, M.Cantidad, M.Stock, M.Lote, M.Precio, P.RazonSocial AS Proveedor
+ FROM Medicamentos M, Proveedores P 
+WHERE M.idProveedor = P.idProveedor
+ ORDER BY M.Medicamento ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Medicamento" DataSetColumn="Medicamento" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Stock" DataSetColumn="Stock" />
+              <Mapping SourceColumn="Lote" DataSetColumn="Lote" />
+              <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
+              <Mapping SourceColumn="idMedicamento" DataSetColumn="idMedicamento" />
+              <Mapping SourceColumn="Proveedor" DataSetColumn="Proveedor" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SFCDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="SFCDataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SFCDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Medicamentos" msprop:Generator_RowEvHandlerName="MedicamentosRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicamentosRowDeleted" msprop:Generator_RowDeletingName="MedicamentosRowDeleting" msprop:Generator_RowEvArgName="MedicamentosRowChangeEvent" msprop:Generator_TablePropName="Medicamentos" msprop:Generator_RowChangedName="MedicamentosRowChanged" msprop:Generator_UserTableName="Medicamentos" msprop:Generator_RowChangingName="MedicamentosRowChanging" msprop:Generator_RowClassName="MedicamentosRow" msprop:Generator_TableClassName="MedicamentosDataTable" msprop:Generator_TableVarName="tableMedicamentos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_UserColumnName="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Medicamento" msprop:Generator_ColumnPropNameInTable="MedicamentoColumn" msprop:Generator_ColumnPropNameInRow="Medicamento" msprop:Generator_UserColumnName="Medicamento" msprop:Generator_ColumnVarNameInTable="columnMedicamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_UserColumnName="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="Stock" msprop:Generator_ColumnPropNameInTable="StockColumn" msprop:Generator_ColumnPropNameInRow="Stock" msprop:Generator_UserColumnName="Stock" msprop:Generator_ColumnVarNameInTable="columnStock" type="xs:int" minOccurs="0" />
+              <xs:element name="Lote" msprop:Generator_ColumnPropNameInTable="LoteColumn" msprop:Generator_ColumnPropNameInRow="Lote" msprop:Generator_UserColumnName="Lote" msprop:Generator_ColumnVarNameInTable="columnLote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_UserColumnName="Precio" msprop:Generator_ColumnVarNameInTable="columnPrecio" type="xs:int" minOccurs="0" />
+              <xs:element name="idMedicamento" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="idMedicamento" msprop:Generator_ColumnPropNameInTable="idMedicamentoColumn" msprop:Generator_ColumnPropNameInRow="idMedicamento" msprop:Generator_ColumnVarNameInTable="columnidMedicamento" type="xs:int" />
+              <xs:element name="Proveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_UserColumnName="Proveedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Medicamentos" />
+      <xs:field xpath="mstns:idMedicamento" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
