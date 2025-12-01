@@ -17,6 +17,7 @@
                     "FROM Clientes_farmacia C, Obras_Sociales OS, Planes_obra_social P " &
                     "WHERE C.idObra_Social = OS.idObraSocial " &
                     "AND C.idPlan = P.idPlan " &
+                    "AND C.Activo = 1 " &  ' <--- FILTRO CLAVE
                     "ORDER BY C.Apellido ASC"
         Else
             ' CASO 2: Con filtro (Búsqueda por Apellido)
@@ -26,6 +27,7 @@
                     "FROM Clientes_farmacia C, Obras_Sociales OS, Planes_obra_social P " &
                     "WHERE C.idObra_Social = OS.idObraSocial " &
                     "AND C.idPlan = P.idPlan " &
+                    "AND C.Activo = 1 " &  ' <--- FILTRO CLAVE
                     "AND C.Apellido LIKE '" & txtFiltrado.Text.Trim() & "%' " &
                     "ORDER BY C.Apellido ASC"
         End If
@@ -64,41 +66,23 @@
     End Sub
 
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuEliminar.Click
-        Dim cadenaSQL As String
-
-
         If Not dgvClientes.CurrentRow Is Nothing Then
 
-
-            If MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-
+            If MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
+                    ' CAMBIO CLAVE: EN LUGAR DE DELETE, HACEMOS UPDATE
+                    IdClienteSelec = dgvClientes.CurrentRow.Cells("idCliente").Value
 
-                    Operacion = "ELIMINAR"
-                    IdClienteSelec = dgvClientes.CurrentRow.Cells("IdCliente").Value
-                    cadenaSQL = "DELETE FROM Clientes_farmacia WHERE IdCliente = " & IdClienteSelec
-                    Ejecutar(cadenaSQL)
-
-
+                    ' Lo marcamos con Activo = 0 (Baja Lógica)
+                    Dim sql As String = "UPDATE Clientes_farmacia SET Activo = 0 WHERE idCliente = " & IdClienteSelec
+                    Ejecutar(sql)
 
                     MsgBox("Cliente eliminado correctamente.", MsgBoxStyle.Information)
                     CargarGrilla()
 
-                Catch ex As System.Data.SqlClient.SqlException
-
-                    If ex.Number = 547 Then
-                        MsgBox("No se puede eliminar a este cliente porque tiene VENTAS asociadas." & vbCrLf &
-                               "El sistema protege el historial de ventas.", MsgBoxStyle.Exclamation, "Operación Bloqueada")
-                    Else
-
-                        MsgBox("Error de base de datos: " & ex.Message, MsgBoxStyle.Critical)
-                    End If
-
                 Catch ex As Exception
-
-                    MsgBox("Ocurrió un error inesperado: " & ex.Message, MsgBoxStyle.Critical)
+                    MsgBox("Error: " & ex.Message)
                 End Try
-
             End If
         End If
     End Sub

@@ -16,6 +16,7 @@
             cadenaSQL = "SELECT M.idMedicamento, M.Codigo, M.Medicamento, M.Cantidad, M.Stock, M.Lote, M.Precio, P.RazonSocial AS Proveedor " &
                     "FROM Medicamentos M, Proveedores P " &
                     "WHERE M.idProveedor = P.idProveedor " &
+                    "AND M.Activo = 1 " &
                     "ORDER BY M.Medicamento ASC"
         Else
             ' CASO 2: Con filtro (Búsqueda por nombre)
@@ -23,6 +24,7 @@
             cadenaSQL = "SELECT M.idMedicamento, M.Codigo, M.Medicamento, M.Cantidad, M.Stock, M.Lote, M.Precio, P.Nombre AS Proveedor " &
                     "FROM Medicamentos M, Proveedores P " &
                     "WHERE M.idProveedor = P.idProveedor " &
+                    "AND M.Activo = 1 " &  ' 
                     "AND M.Medicamento LIKE '" & txtFiltro.Text.Trim() & "%' " &
                     "ORDER BY M.Medicamento ASC"
         End If
@@ -61,13 +63,24 @@
 
     End Sub
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuEliminar.Click
-        Dim cadenaSQL As String
-
         If Not dgvMedicamentos.CurrentRow Is Nothing Then
-            Operacion = "ELIMINAR"
-            IdMedicamentoSelec = dgvMedicamentos.CurrentRow.Cells(0).Value
-            cadenaSQL = "DELETE FROM Medicamentos WHERE idMedicamento = " & IdMedicamentoSelec
-            Ejecutar(cadenaSQL)
+
+            If MessageBox.Show("¿Está seguro de eliminar este medicamento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                Try
+                    ' EN LUGAR DE DELETE, HACEMOS UPDATE
+                    ' Lo marcamos con Activo = 0
+                    IdMedicamentoSelec = dgvMedicamentos.CurrentRow.Cells("idMedicamento").Value
+
+                    Dim sql As String = "UPDATE Medicamentos SET Activo = 0 WHERE idMedicamento = " & IdMedicamentoSelec
+                    Ejecutar(sql)
+
+                    MsgBox("Medicamento eliminado correctamente.", MsgBoxStyle.Information)
+                    CargarGrilla()
+
+                Catch ex As Exception
+                    MsgBox("Error: " & ex.Message)
+                End Try
+            End If
         End If
     End Sub
 End Class

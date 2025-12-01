@@ -7,7 +7,7 @@ Public Class frmVenta
         Me.CenterToScreen()
 
         Dim tabla As New DataTable
-        Dim cadenaSQL As String = "SELECT idCliente, RTRIM(Apellido) + ',' + RTRIM(Nombre) AS NombreCompleto FROM Clientes_farmacia ORDER BY Apellido"
+        Dim cadenaSQL As String = "SELECT idCliente, RTRIM(Apellido) + ',' + RTRIM(Nombre) AS NombreCompleto FROM Clientes_farmacia where Activo = 1 ORDER BY Apellido"
         Recuperar(cadenaSQL, tabla)
 
         cmbClientes.DataSource = tabla
@@ -18,7 +18,7 @@ Public Class frmVenta
         cmbClientes.DropDownStyle = ComboBoxStyle.DropDown
 
 
-        cadenaSQL = "SELECT * FROM Medicamentos ORDER BY Medicamento"
+        cadenaSQL = "SELECT * FROM Medicamentos where Activo = 1 ORDER BY Medicamento"
         tabla = New DataTable
         Recuperar(cadenaSQL, tabla)
 
