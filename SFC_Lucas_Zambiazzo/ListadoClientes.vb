@@ -66,13 +66,41 @@
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuEliminar.Click
         Dim cadenaSQL As String
 
+
         If Not dgvClientes.CurrentRow Is Nothing Then
-            Operacion = "ELIMINAR"
-            IdClienteSelec = dgvClientes.CurrentRow.Cells("IdCliente").Value
-            cadenaSQL = "DELETE FROM Clientes_farmacia WHERE IdCliente = " & IdClienteSelec
-            Ejecutar(cadenaSQL)
+
+
+            If MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+
+                Try
+
+                    Operacion = "ELIMINAR"
+                    IdClienteSelec = dgvClientes.CurrentRow.Cells("IdCliente").Value
+                    cadenaSQL = "DELETE FROM Clientes_farmacia WHERE IdCliente = " & IdClienteSelec
+                    Ejecutar(cadenaSQL)
+
+
+
+                    MsgBox("Cliente eliminado correctamente.", MsgBoxStyle.Information)
+                    CargarGrilla()
+
+                Catch ex As System.Data.SqlClient.SqlException
+
+                    If ex.Number = 547 Then
+                        MsgBox("No se puede eliminar a este cliente porque tiene VENTAS asociadas." & vbCrLf &
+                               "El sistema protege el historial de ventas.", MsgBoxStyle.Exclamation, "Operación Bloqueada")
+                    Else
+
+                        MsgBox("Error de base de datos: " & ex.Message, MsgBoxStyle.Critical)
+                    End If
+
+                Catch ex As Exception
+
+                    MsgBox("Ocurrió un error inesperado: " & ex.Message, MsgBoxStyle.Critical)
+                End Try
+
+            End If
         End If
     End Sub
-
 
 End Class
