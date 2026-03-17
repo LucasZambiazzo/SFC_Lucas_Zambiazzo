@@ -134,7 +134,6 @@ Partial Class frmMedicamentos
         Me.txtStock.Location = New System.Drawing.Point(445, 30)
         Me.txtStock.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStock.Name = "txtStock"
-        Me.txtStock.ReadOnly = True
         Me.txtStock.Size = New System.Drawing.Size(132, 25)
         Me.txtStock.TabIndex = 5
         '
