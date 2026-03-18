@@ -58,4 +58,8 @@
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
         InformeUsuarios.ShowDialog()
     End Sub
+
+    Private Sub btnFiltrar_Click(sender As Object, e As EventArgs) Handles btnFiltrar.Click
+        CargarGrilla()
+    End Sub
 End Class
