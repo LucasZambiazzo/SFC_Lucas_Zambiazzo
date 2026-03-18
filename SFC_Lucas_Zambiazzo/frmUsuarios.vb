@@ -111,19 +111,20 @@
                 txtNombre.Clear()
                 chkActivo.Checked = False
                 Me.Close()
-            End If
 
-        ElseIf Operacion = "MODIFICAR" Then
-            cadenaSQL = "UPDATE Usuarios SET "
-            cadenaSQL &= "Apellido = '" & txtApellido.Text.Trim & "', "
-            cadenaSQL &= "Nombre = '" & txtNombre.Text.Trim & "', "
-            cadenaSQL &= "IdGrupo = " & cmbGrupo.SelectedValue & ", "
-            cadenaSQL &= "Activo = " & IIf(chkActivo.Checked, 1, 0) & ", "
-            cadenaSQL &= "Usuario = '" & txtUsuario.Text.Trim & "' "
-            cadenaSQL &= "WHERE IdUsuario = " & IdUsuarioSelec
-            Ejecutar(cadenaSQL)
-            MessageBox.Show("Usuario actualizado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Close()
+
+            ElseIf Operacion = "MODIFICAR" Then
+                cadenaSQL = "UPDATE Usuarios SET "
+                cadenaSQL &= "Apellido = '" & txtApellido.Text.Trim & "', "
+                cadenaSQL &= "Nombre = '" & txtNombre.Text.Trim & "', "
+                cadenaSQL &= "IdGrupo = " & cmbGrupo.SelectedValue & ", "
+                cadenaSQL &= "Activo = " & IIf(chkActivo.Checked, 1, 0) & ", "
+                cadenaSQL &= "Usuario = '" & txtUsuario.Text.Trim & "' "
+                cadenaSQL &= "WHERE IdUsuario = " & IdUsuarioSelec
+                Ejecutar(cadenaSQL)
+                MessageBox.Show("Usuario actualizado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            End If
         End If
     End Sub
 End Class
