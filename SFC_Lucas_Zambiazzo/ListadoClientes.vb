@@ -49,6 +49,12 @@
 
     Private Sub mnuNuevo_Click(sender As Object, e As EventArgs) Handles mnuNuevo.Click
         Operacion = "ALTA"
+        frmClientes.txtNombre.Clear()
+        frmClientes.txtApellido.Clear()
+        frmClientes.txtTelefono.Clear()
+        frmClientes.txtEmail.Clear()
+
+        IdClienteSelec = 0
         frmClientes.ShowDialog()
     End Sub
 

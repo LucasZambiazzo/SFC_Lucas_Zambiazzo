@@ -47,6 +47,15 @@
 
     Private Sub mnuNueva_Click(sender As Object, e As EventArgs) Handles mnuNueva.Click
         Operacion = "ALTA"
+
+        frmMedicamentos.txtCantidad.Clear()
+        frmMedicamentos.txtLote.Clear()
+        frmMedicamentos.txtMedicamento.Clear()
+        frmMedicamentos.txtPrecio.Clear()
+        frmMedicamentos.mskCodigo.Clear()
+        frmMedicamentos.cmbProveedor.SelectedIndex = 0
+        frmMedicamentos.txtStock.Clear()
+
         frmMedicamentos.ShowDialog()
     End Sub
 

@@ -32,6 +32,15 @@
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuNuevo.Click
         Operacion = "ALTA"
+
+        frmUsuarios.txtUsuario.Clear()
+        frmUsuarios.txtApellido.Clear()
+        frmUsuarios.txtNombre.Clear()
+        frmUsuarios.txtContraseña.Clear()
+        frmUsuarios.txtConfirmarContraseña.Clear()
+        frmUsuarios.chkActivo.Checked = False
+        frmUsuarios.cmbGrupo.SelectedIndex = 0
+
         frmUsuarios.ShowDialog()
     End Sub
 
